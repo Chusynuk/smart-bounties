@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import { headers } from "next/headers";
 import "./globals.css";
 import Providers from "./Providers";
+import { FlexLayout } from "./components/flex-layout";
+import { Header } from "./components/header/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +24,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<Providers cookie={cookie}>{children}</Providers>
+				<Providers cookie={cookie}>
+					<FlexLayout>{children}</FlexLayout>
+				</Providers>
 			</body>
 		</html>
 	);

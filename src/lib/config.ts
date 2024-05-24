@@ -6,7 +6,7 @@ import { blastSepolia, bscTestnet, sepolia } from "wagmi/chains";
 
 const projectId = "a69e1566c04e28f4ae629b951c8b6736";
 
-const supportedChains: Chain[] = [sepolia, bscTestnet, blastSepolia];
+const supportedChains: Chain[] = [sepolia];
 
 export const config = getDefaultConfig({
 	appName: "WalletConnection",
