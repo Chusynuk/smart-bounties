@@ -1,17 +1,18 @@
-import { Flex } from "./";
-import { Header } from "./header/header";
+"use client";
+import { Flex, Header } from "components";
+import type { ReactNode } from "react";
 
 interface FlexLayoutProps {
-	children: React.ReactNode;
+	children: ReactNode;
 }
 
-export const FlexLayout = ({ children }: FlexLayoutProps) => {
+const FlexLayout = ({ children }: FlexLayoutProps) => {
 	return (
-		<Flex flexDirection="column" overflowY="hidden">
-			<Flex flexDirection="column">
-				<Header />
-				{children}
-			</Flex>
+		<Flex flexDirection="column">
+			<Header />
+			<main>{children}</main>
 		</Flex>
 	);
 };
+
+export { FlexLayout };

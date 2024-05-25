@@ -1,11 +1,12 @@
 "use client";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
+import { Box } from "components";
 import Link from "next/link";
-import Box from "../box/box";
-import { HeaderStyled } from "./header.styled";
+import { HeaderStyled } from "./styles/header.styled";
 
-export const Header = () => {
+const Header = () => {
 	return (
 		<HeaderStyled>
 			<Link
@@ -20,3 +21,5 @@ export const Header = () => {
 		</HeaderStyled>
 	);
 };
+
+export { Header };

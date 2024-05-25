@@ -42,4 +42,4 @@ const Box = styled.div<IBox>`
 
 Box.defaultProps = {};
 
-export default Box;
+export { Box };

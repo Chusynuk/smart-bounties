@@ -1,8 +1,7 @@
 "use client";
-
 import { type Chain, getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { http, cookieStorage, createStorage } from "wagmi";
-import { blastSepolia, bscTestnet, sepolia } from "wagmi/chains";
+import { sepolia } from "wagmi/chains";
 
 const projectId = "a69e1566c04e28f4ae629b951c8b6736";
 

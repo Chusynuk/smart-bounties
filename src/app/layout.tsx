@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type React from "react";
+// import { Inter } from "next/font/google";
 
 import { headers } from "next/headers";
 import "./globals.css";
-import Providers from "./Providers";
-import { FlexLayout } from "./components/flex-layout";
-import { Header } from "./components/header/header";
+import { MainProvider } from "./providers/main-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+import { FlexLayout } from "components";
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -23,10 +24,11 @@ export default function RootLayout({
 
 	return (
 		<html lang="en">
-			<body className={inter.className}>
-				<Providers cookie={cookie}>
+			{/* <body className={inter.className}> */}
+			<body>
+				<MainProvider cookie={cookie}>
 					<FlexLayout>{children}</FlexLayout>
-				</Providers>
+				</MainProvider>
 			</body>
 		</html>
 	);

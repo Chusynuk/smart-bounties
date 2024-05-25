@@ -2,18 +2,21 @@
 
 import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { ReactNode } from "react";
 import { WagmiProvider, cookieToInitialState } from "wagmi";
+import { ReactStateProvider } from "./react-context-provider";
+import { UiProvider } from "./ui-provider";
 
-import { config } from "@/lib/config";
+import { config } from "lib/config";
 
 const queryClient = new QueryClient();
 
-type ProviderProps = {
-	children: React.ReactNode;
+type MainProviderProps = {
+	children: ReactNode;
 	cookie?: string | null;
 };
 
-export default function Providers({ children, cookie }: ProviderProps) {
+export function MainProvider({ children, cookie }: MainProviderProps) {
 	const initialState = cookieToInitialState(config, cookie);
 
 	return (
@@ -28,7 +31,9 @@ export default function Providers({ children, cookie }: ProviderProps) {
 						overlayBlur: "small",
 					})}
 				>
-					{children}
+					<ReactStateProvider>
+						<UiProvider>{children}</UiProvider>
+					</ReactStateProvider>
 				</RainbowKitProvider>
 			</QueryClientProvider>
 		</WagmiProvider>

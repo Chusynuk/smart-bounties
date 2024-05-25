@@ -1,4 +1,5 @@
 {
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
@@ -8,6 +9,32 @@
 		"indentWidth": 2,
 		"lineEnding": "lf",
 		"lineWidth": 80
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"style": {
+				"all": true
+			},
+			"complexity": {
+				"all": true
+			},
+			"correctness": {
+				"all": true
+			},
+			"performance": {
+				"all": true
+			},
+			"suspicious": {
+				"all": true
+			},
+			"security": {
+				"all": true
+			},
+			"a11y": {
+				"all": true
+			}
+		}
 	},
 	"javascript": {
 		"formatter": {

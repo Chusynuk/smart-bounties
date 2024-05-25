@@ -1,11 +1,11 @@
 "use client";
 
-import { emojiAvatarForAddress } from "@/lib/emojiAvatarForAddress";
 import {
 	useAccountModal,
 	useChainModal,
 	useConnectModal,
 } from "@rainbow-me/rainbowkit";
+import { emojiAvatarForAddress } from "lib/emojiAvatarForAddress";
 import { useEffect, useRef } from "react";
 import { useAccount, useDisconnect } from "wagmi";
 
@@ -29,11 +29,12 @@ export const ConnectBtn = () => {
 	if (!isConnected) {
 		return (
 			<button
+				type="button"
 				className="btn"
 				onClick={async () => {
 					// Disconnecting wallet first because sometimes when is connected but the user is not connected
 					if (isConnected) {
-						disconnect();
+						await disconnect();
 					}
 					openConnectModal?.();
 				}}
@@ -46,7 +47,7 @@ export const ConnectBtn = () => {
 
 	if (isConnected && !chain) {
 		return (
-			<button className="btn" onClick={openChainModal}>
+			<button type="button" className="btn" onClick={openChainModal}>
 				Wrong network
 			</button>
 		);
@@ -56,7 +57,7 @@ export const ConnectBtn = () => {
 		<div className="max-w-5xl w-full flex items-center justify-between">
 			<div
 				className="flex justify-center items-center px-4 py-2 border border-neutral-700 bg-neutral-800/30 rounded-xl font-mono font-bold gap-x-2 cursor-pointer"
-				onClick={async () => openAccountModal?.()}
+				onKeyDown={async () => openAccountModal?.()}
 			>
 				<div
 					role="button"
